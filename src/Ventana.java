@@ -15,7 +15,9 @@ public class Ventana {
     DefaultListModel<Usuario> modeloLista1 = new DefaultListModel<>();
     DefaultListModel<Usuario> modeloLista2 = new DefaultListModel<>();
     ListaTransferidos coco = new ListaTransferidos();
+    ListaDeunaTransferidos rila = new ListaDeunaTransferidos();
     OrdenesLavado ordenes = new OrdenesLavado();
+    OrdenesLavSeco ordenSeco = new OrdenesLavSeco();
     OrdenesTinturados ordenerTNT = new OrdenesTinturados();
     OrdenesArreglos ordenesArgg = new OrdenesArreglos();
 
@@ -47,8 +49,6 @@ public class Ventana {
     private JButton INICIARSESIONButton;
     private JButton REGISTRARSEButton;
     private JButton btnTarjeta;
-    private JButton btnTransferencia;
-    private JButton btnAppMovil;
     private JTextField txtNumTarj;
     private JSpinner spnDiaTarj;
     private JSpinner spnMesTarj;
@@ -188,12 +188,89 @@ public class Ventana {
     private JButton REGISTRARYPAGARButton;
     private JTextArea txtMostArre;
     private JTextField txtCedMiPerfil;
-    private JButton VERDATOSButton;
-    private JList listMiperfil;
     private JTextField txtNuevoNAME;
     private JTextField txtCeluNuevo;
     private JTextField txtCorreoNuevo;
     private JButton actualizarDatosButton;
+    private JTextField txtNewApellido;
+    private JTextArea txtMiPerfilD;
+    private JLabel lblCedulaMiperfil;
+    private JButton regresarButton2;
+    private JPanel jpMisPedidos;
+    private JPanel jTinturados;
+    private JPanel jArreglos;
+    private JPanel jVerPedidos;
+    private JComboBox cboOrdenHisto;
+    private JButton VERButton;
+    private JLabel lblCedHisto;
+    private JLabel lblCedulaAgua;
+    private JLabel lblCedulaSeco;
+    private JLabel lblCedulaArreglo;
+    private JLabel lblCedulaTinturado;
+    private JButton REGRESARButton1;
+    private JButton REGRESARButton2;
+    private JButton REGRESARButton3;
+    private JPanel jpMenuAdmin;
+    private JButton REGISTRARNUEVOSCLIENTESButton;
+    private JButton ELIMINARCLIENTESButton;
+    private JButton VERPEDIDOSButton;
+    private JButton BUSCARCLIENTESButton;
+    private JButton LISTARCLIENTESButton;
+    private JButton ACTUALIZARDATOSCLIENTESButton;
+    private JButton VERIFICARTRANSFERENCIASButton;
+    private JButton MIPERFILButton;
+    private JButton SOPORTEAPPButton;
+    private JButton regresarButton4;
+    private JButton regresarButton3;
+    private JButton regresarButton5;
+    private JButton regresarButton6;
+    private JButton regresarButton7;
+    private JButton regresarButton8;
+    private JButton REGRESARButton4;
+    private JPanel jPerfilAdmn;
+    private JTextArea txtMiperfilAdmn;
+    private JTextField txtNewAdminNombre;
+    private JTextField txtNewApellidoAdmin;
+    private JTextField txtNewAdminCelu;
+    private JTextField txtNewAdminCorreo;
+    private JButton actualizarButton;
+    private JButton regresarButton9;
+    private JButton cerrarSesionButton;
+    private JLabel lblCedAdmin;
+    private JButton regresarButton10;
+    private JTextField txtapellidoActualiz;
+    private JButton LLAMARAFASTCLEANINGButton;
+    private JButton ESCRIBIRAWHATSAPPButton;
+    private JButton REGRESARButton5;
+    private JPanel jpContactarAyuda;
+    private JPanel jpWPClien;
+    private JButton regresarButton12;
+    private JButton REGRESARButton6;
+    private JButton REGRESARButton7;
+    private JTextField txtfechaDeUna;
+    private JTextField txtMontoDeUNa;
+    private JTextField txtNameDeUna;
+    private JButton PAGARButton1;
+    private JPanel jpPagarFrame;
+    private JComboBox cboMetodoPAGO;
+    private JButton btnIR;
+    private JPanel jpTarjetaCredi;
+    private JTextArea txtTarjetaFAv;
+    private JButton PAGARButton2;
+    private JButton AGREGARNUEVATARJETAButton;
+    private JComboBox cboPservicio;
+    private JComboBox cboServArr;
+    private JButton SALIRButton;
+    private JComboBox cboCEDSECO;
+    private JComboBox cboORDSECO;
+    private JTextArea txtPedidosSECO;
+    private JButton BUSCARButton1;
+    private JButton CAMBIARMETODODEPAGOButton;
+    private JButton CAMBIARMETODOPAGOButton;
+    private JButton CAMBIARMETODOPAGOButton1;
+    private JComboBox cboServDeUna;
+    private JTextArea txtTransDeUna;
+    private JTextArea txtTransfer;
     private JCheckBox ckMISMO;
     private JLabel lblFoto;
     private JList lstListar;
@@ -220,8 +297,20 @@ public class Ventana {
         tbtActualizar.remove(jpDeleteCL);
         tbtActualizar.remove(jpSoporteApp);
         tbtActualizar.remove(jpWPP);
+        tbtActualizar.remove(jpWashNDry);
+        tbtActualizar.remove(jArreglos);
+        tbtActualizar.remove(jTinturados);
+        tbtActualizar.remove(jpMisPedidos);
+        tbtActualizar.remove(jPerfilAdmn);
+        tbtActualizar.remove(jpMenuAdmin);
+        tbtActualizar.remove(jVerPedidos);
+        tbtActualizar.remove(jpContactarAyuda);
+        tbtActualizar.remove(jpWPClien);
+        tbtActualizar.remove(jpPagarFrame);
+        tbtActualizar.remove(jpTarjetaCredi);
         tbtAgSec.remove(jAgua);
         tbtAgSec.remove(jSeco);
+
 
 
 
@@ -283,17 +372,12 @@ public class Ventana {
                 String password = txtPassLogin.getText();
                 if (chkLogin.isSelected() && listaAdministradores.verificarCredenciales(cedula,password) ){
                     JOptionPane.showMessageDialog(null,"Bienvenido Administrador");
-                    tbtActualizar.add("BUSCAR",JpBuscarUsuAd);
-                    tbtActualizar.add("LISTAR",JpListar);
-                    tbtActualizar.add("ACTUALIZAR", jpActualizar);
-                    tbtActualizar.add("VERIFICAR TRANSFERENCIA", jpVerificarTrans);
-                    tbtActualizar.add("REGISTRAR NUEVOS CLIENTES", jpRegisUsu);
-                    tbtActualizar.add("ELIMINAR CLLIENTES", jpDeleteCL);
-                    tbtActualizar.add("MI PERFIL", jpMiPerfil);
-                    tbtActualizar.add("SOPORTE APP", jpSoporteApp);
-
+                    tbtActualizar.add("MENU ADMINISTRADOR", jpMenuAdmin);
                     tbtActualizar.remove(JpIniciarUsu);
                     tbtActualizar.remove(JpGestionar);
+                    Usuario usuario = listaAdministradores.buscarPorCedula(cedula);
+                    lblCedAdmin.setText(usuario.getCedula());
+                    txtMiperfilAdmn.setText(usuario.toString());
 
                 } else if (listaClientes.verificarCredenciales(cedula,password)) {
                     JOptionPane.showMessageDialog(null,"Bienvenido Usuario");
@@ -301,6 +385,13 @@ public class Ventana {
                     if(noVisibleTarj){
                         tbtActualizar.add("MENU PRINCIPAL", jpMenuPrincipa);
                     }
+                    Usuario cliente = listaClientes.buscarPorCedula(cedula);
+                    txtMiPerfilD.setText(cliente.toString());
+                    lblCedulaMiperfil.setText(cliente.getCedula());
+                    lblCedulaTinturado.setText(cliente.getCedula());
+                    lblCedulaArreglo.setText(cliente.getCedula());
+                    lblCedulaSeco.setText(cliente.getCedula());
+                    lblCedulaAgua.setText(cliente.getCedula());
 
                     tbtActualizar.remove(JpIniciarUsu);
                     tbtActualizar.remove(JpGestionar);
@@ -331,6 +422,7 @@ public class Ventana {
                     txtNB.setText(usuario.getNombre());
                     txtAB.setText(usuario.getApellido());
                 }
+                txtBuscar.setText("");
             }
         });
         listarClientesButton.addActionListener(new ActionListener() {
@@ -399,9 +491,16 @@ public class Ventana {
                 boolean isValid = pepe.validateCreditCard(numTarjeta);
                 boolean validarFecha = pepe.validarFecha(fechaTarjeta);
                 if (isValid) {
-                    if (validarFecha){
-                        JOptionPane.showMessageDialog(null,"El número de tarjeta es válido.");
+                    if (validarFecha) {
+                        JOptionPane.showMessageDialog(null, "El número de tarjeta es válido.");
                         pepe.agregar(tarjetin);
+                        txtTarjetaFAv.setText(String.valueOf(pepe.listita.getLast()));
+                        txtNombreProp.setText("");
+                        txtNumTarj.setText("");
+                        txtDia.setText("");
+                        txtMes.setText("");
+                        txtAnio.setText("");
+                        txtCVV.setText("");
                     }else{
                         JOptionPane.showMessageDialog(null,"La fecha ingresada no es valida");
                     }
@@ -409,6 +508,7 @@ public class Ventana {
                 } else {
                     JOptionPane.showMessageDialog(null,"El número de tarjeta no es válido.");
                 }
+
             }
 
         });
@@ -419,33 +519,37 @@ public class Ventana {
 
             }
         });
-        btnTransferencia.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                boolean noVisibleTarj = tbtActualizar.indexOfComponent(JpTransferencia) != 1;
-                if(noVisibleTarj){
-                    tbtActualizar.remove(JpMetodosPago);
-                    tbtActualizar.add("TRANSFERENCIA",JpTransferencia);
-                }
 
-            }
-        });
-        btnYaTansferi.addActionListener(new ActionListener() {
+        btnYaTansferi.addActionListener(new
+                                                ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DefaultListModel<LinkedList<Comprobantes>> dlm2 = new DefaultListModel<>();
+                String servico = cboServArr.getSelectedItem().toString();
                 String nombreprop = txtNombreCuenta.getText();
-                int nCuenta = Integer.parseInt(txtNumCuenta.getText());
+                String cuenta = txtNumCuenta.getText();
                 String comprobante = txtComporobante.getText();
                 String banco = txtBanco.getText();
                 String fecha = txtFechaTransfer.getText();
-                Float monto = Float.parseFloat(txtMonto.getText());
-                Comprobantes neni = new Comprobantes(nombreprop,nCuenta,comprobante,fecha, banco, monto);
-                coco.agregar(neni);
-                dlm2.addElement(coco.coqui);
-                jlistClienTransf.setModel(dlm2);
-                JOptionPane.showMessageDialog(null,"Estamos validando tu transferencia," +
-                        " se te enviará la confirmación al correo");
+                if (nombreprop.isEmpty() || comprobante.isEmpty()||banco.isEmpty()||fecha.isEmpty() || cuenta.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"LLENE LA INFORMACION PARA VERIFICAR SU TRANSFERENCIA");
+                } else {
+                    if (servico.equalsIgnoreCase("LAVADO EN AGUA")){
+                        esAgua();
+                        transferir();
+                    } else if (servico.equalsIgnoreCase("LAVADO EN SECO")) {
+                        esSeco();
+                        transferir();
+                    } else if (servico.equalsIgnoreCase("TINTURADO")) {
+                        esTinturado();
+                        transferir();
+                    } else if (servico.equalsIgnoreCase("ARREGLOS")){
+                        esArreglo();
+                        transferir();
+                    } else {
+                        JOptionPane.showMessageDialog(null,"SELECCIONE UN SERVICIO");
+                    }
+
+                }
                 txtNombreCuenta.setText(null);
                 txtNumCuenta.setText(null);
                 txtComporobante.setText(null);
@@ -455,34 +559,7 @@ public class Ventana {
 
             }
         });
-        btnAppMovil.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                boolean noVisibleTarj = tbtActualizar.indexOfComponent(JpAppMovil) != 1;
-                if(noVisibleTarj){
-                    tbtActualizar.add("App Movil",JpAppMovil);
-                }
-            }
-        });
-        JpAppMovil.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                super.componentResized(e);
 
-            }
-        });
-
-
-        lblFotin.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                super.componentResized(e);
-                lblFotin.setHorizontalAlignment(SwingConstants.CENTER);
-                lblFotin.setVerticalAlignment(SwingConstants.CENTER);
-                lblFotin.setVisible(true);
-                lblFotin.setSize(500,700);
-            }
-        });
         btnCedBuscar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -502,15 +579,41 @@ public class Ventana {
                 String newNombre = txtNewName.getText();
                 String newCelular = txtNewNumero.getText();
                 String newCorreo = txtNewCorreo.getText();
+                String newApellido = txtapellidoActualiz.getText();
 
                 Usuario usuario = listaClientes.buscarPorCedula(cedula);
-                usuario.setNombre(newNombre);
-                usuario.setCelular(newCelular);
-                usuario.setCorreo(newCorreo);
+                if (newNombre.isEmpty() && newCelular.isEmpty() && newCorreo.isEmpty() && newApellido.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"ERROR\nIngrese los datos a actualizar");
+                } else {
+                    if (newNombre.isEmpty()) {
+                        usuario.setNombre(usuario.getNombre());
+                    } else {
+                        usuario.setNombre(newNombre);
+                    }
+                    if (newApellido.isEmpty()){
+                        usuario.setApellido(usuario.getApellido());
+                    }else {
+                        usuario.setApellido(newApellido);
+                    }
+                    if (newCelular.isEmpty()){
+                        usuario.setCelular(usuario.getCelular());
+                    } else {
+                        usuario.setCelular(newCelular);
+                    }
+                    if (newCorreo.isEmpty()) {
+                        usuario.setCorreo(usuario.getCorreo());
+                    } else {
+                        usuario.setCorreo(newCorreo);
+                    }
+                    JOptionPane.showMessageDialog(null,"Los datos se han actualizado");
+                    JOptionPane.showMessageDialog(null, usuario.toString());
 
-                JOptionPane.showMessageDialog(null,"Los datos se han actualizado");
-                JOptionPane.showMessageDialog(null, usuario.toString());
-
+                    txtCBuscada.setText("");
+                    txtNewName.setText("");
+                    txtNewNumero.setText("");
+                    txtNewCorreo.setText("");
+                    txtapellidoActualiz.setText("");
+                }
             }
         });
         btnMetodosPago.addActionListener(new ActionListener() {
@@ -538,6 +641,18 @@ public class Ventana {
                 tbtActualizar.remove(JpBuscarUsuAd);
                 tbtActualizar.remove(jpActualizar);
                 tbtActualizar.remove(jpRegisUsu);
+
+                tbtActualizar.remove(JpIniciarUsu);
+                tbtActualizar.remove(JpCrearUsu);
+                tbtActualizar.remove(JpTarjeta);
+                tbtActualizar.remove(JpMetodosPago);
+                tbtActualizar.remove(JpTransferencia);
+                tbtActualizar.remove(JpAppMovil);
+                tbtActualizar.remove(jpMenuPrincipa);
+                tbtActualizar.remove(jpSoliServ);
+                tbtActualizar.remove(jpServicios);
+                tbtActualizar.remove(jpSoporteApp);
+                tbtActualizar.remove(jpWPP);
                 tbtActualizar.add("FAST CLEANING LAUNDRY ", JpGestionar);
 
 
@@ -609,13 +724,13 @@ public class Ventana {
                         JOptionPane.showMessageDialog(null, "Verifique la cedula, ya fue agregada o esta mal escrita");
                     }
                 }
-                txtNombre.setText(null);
-                txtApellido.setText(null);
-                txtID.setText(null);
-                txtPassword.setText(null);
-                txtCelular.setText(null);
-                txtCorreo.setText(null);
-                chkAdmin.setText(null);
+                txtName.setText("");
+                txtLastname.setText("");
+                txtId.setText("");
+                txtpsw.setText("");
+                txtPhone.setText("");
+                txtMail.setText("");
+                checkAdmin.setText("");
             }
         });
         btnBuscCliente.addActionListener(new ActionListener() {
@@ -636,13 +751,15 @@ public class Ventana {
                 Usuario usuario = listaClientes.buscarPorCedula(ced);
                 listaClientes.eliminar(usuario);
                 JOptionPane.showMessageDialog(null,"Cliente eliminado correctamente");
+                txtCed4Delete.setText("");
+                listPEliminar.setModel(null);
             }
         });
         regresarButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tbtActualizar.remove(JpTransferencia);
-                tbtActualizar.add("METODOS DE PAGO", JpMetodosPago);
+                tbtActualizar.add("MENU PRINCIPAL",jpMenuPrincipa);
             }
         });
         btnWPP.addActionListener(new ActionListener() {
@@ -665,15 +782,7 @@ public class Ventana {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tbtActualizar.remove(jpWPP);
-
-                tbtActualizar.add("BUSCAR", JpBuscarUsuAd);
-                tbtActualizar.add("LISTAR", JpListar);
-                tbtActualizar.add("ACTUALIZAR", jpActualizar);
-                tbtActualizar.add("VERIFICAR TRANSFERENCIA", jpVerificarTrans);
-                tbtActualizar.add("REGISTRAR NUEVOS CLIENTES", jpRegisUsu);
-                tbtActualizar.add("ELIMINAR CLIENTES", jpDeleteCL);
-                tbtActualizar.add("MI PERFIL", jpMiPerfil);
-                tbtActualizar.add("SOPORTE APP", jpSoporteApp);
+                tbtActualizar.add("MENU ADMINISTRADOR",jpMenuAdmin);
             }
         });
 
@@ -772,47 +881,24 @@ public class Ventana {
         PAGARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String cedu = txtCedulaProdu.getText();
                 String lista = txtProduAGG.getText();
-                int aux = ordenes.tamano()+1;
-                if (cedu.isEmpty() || lista.isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Complete el campo 'cedula'");
+                if (lista.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Agregue al menos un producto");
                 } else {
-                    JOptionPane.showMessageDialog(null,"Su pedido ha sido generado, cancele el valor de su pedido para registarlo");
-                    boolean veri = listaClientes.verificarCedulaUnica(cedu); //verifica si la cedula ingresada es de un usuario existente
-                    if (veri){
-                        JOptionPane.showMessageDialog(null,"Ese usuario no esta registrado, verifique la cedula");
-                    }else {
-                        Orden o = new Orden(cedu, lista, aux); //crea objeto orden con un numero de orden
-                        ordenes.add(o); //enlistar ordenes
 
-                        LinkedList cedulasPedidos = ordenes.cedulasPedidos();
-                        DefaultComboBoxModel dcbo = new DefaultComboBoxModel();
-                        for (Object elemento:cedulasPedidos){
-                            dcbo.addElement(elemento); //para que se añada solo una vez la cedula del usuario
-                            // pero si se añade el numero de ordenes que tiene
-                        }
-                        cboVeriPedi.setModel(dcbo);
+                    tbtActualizar.remove(jpWashNDry);
+                    tbtActualizar.add("PAGAR", jpPagarFrame);
 
-                        LinkedList numOrden = ordenes.ordenespedidos();
-                        DefaultComboBoxModel dcbo1 = new DefaultComboBoxModel<>();
-                        for (Object elem:numOrden){
-                            dcbo1.addElement(elem);
-                        }
-                        cboOrden.setModel(dcbo1);
-
-                        //falta enviar a jpMetodosPago
-
-                        cboAGUA.setSelectedIndex(0); //
-                        spCantidad.setModel(model);
-                        lblPrecio.setText("");
-                        lblPrecioYCantidad.setText("");
-                        txtProduAGG.setText("");
-                        lblSUBTOTAL.setText("");
-                        lblValEncio.setText("");
-                        lblTOTAL.setText("");
-                    }
                 }
+
+                cboAGUA.setSelectedIndex(0);
+                spCantidad.setModel(model);
+                lblPrecio.setText("");
+                lblPrecioYCantidad.setText("");
+                lblSUBTOTAL.setText("");
+                lblValEncio.setText("");
+                lblTOTAL.setText("");
+
                 }
         });
 
@@ -904,97 +990,43 @@ public class Ventana {
         bntPagarSeco.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String cedu = txtCVeriSeco.getText();
                 String lista = txtproduSeco.getText();
-                int aux = ordenes.tamano()+1;
-                if (cedu.isEmpty() || lista.isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Complete el campo 'cedula'");
+                if (lista.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Agregue al menos un producto");
                 } else {
-                    boolean veri = listaClientes.verificarCedulaUnica(cedu); //verifica si la cedula ingresada es de un usuario existente
-                    if (veri){
-                        JOptionPane.showMessageDialog(null,"Ese usuario no esta registrado, verifique la cedula");
-                    }else {
-                        JOptionPane.showMessageDialog(null,"Su pedido ha sido generado, cancele el valor de su pedido para registarlo");
-                        Orden o = new Orden(cedu, lista, aux); //crea objeto orden con un numero de orden
-                        ordenes.add(o); //enlistar ordenes
-
-                        LinkedList cedulasPedidos = ordenes.cedulasPedidos();
-                        DefaultComboBoxModel dcbo = new DefaultComboBoxModel();
-                        for (Object elemento:cedulasPedidos){
-                            dcbo.addElement(elemento);
-                        }
-                        cboVeriPedi.setModel(dcbo);
-
-                        LinkedList numOrden = ordenes.ordenespedidos();
-                        DefaultComboBoxModel dcbo1 = new DefaultComboBoxModel<>();
-                        for (Object elem:numOrden){
-                            dcbo1.addElement(elem);
-                        }
-                        cboOrden.setModel(dcbo1);
-
-                        //falta enviar a jpMetodosPago
-
-                        cboSECO.setSelectedIndex(0); //
-                        spCantSeco.setModel(model);
-                        lblPuniSeco.setText("");
-                        lblPrecioSeco.setText("");
-                        txtproduSeco.setText("");
-                        lblSUBTSECO.setText("");
-                        lblEnviSECO.setText("");
-                        lblTOTALSECO.setText("");
-                    }
-
+                    tbtActualizar.remove(jpWashNDry);
+                    tbtActualizar.add("PAGAR", jpPagarFrame);
                 }
-                }
+                cboSECO.setSelectedIndex(0); //
+                spCantSeco.setModel(model);
+                lblPuniSeco.setText("");
+                lblPrecioSeco.setText("");
+                txtproduSeco.setText("");
+                lblSUBTSECO.setText("");
+                lblEnviSECO.setText("");
+                lblTOTALSECO.setText("");
+            }
         });
         btnPagarTint.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                String ced= txtCedTint.getText();
                 String prenda = txtNombrePrenda.getText();
                 String color = txtColor.getText();
-                int ordenes = ordenerTNT.tamano()+1;
-                if (ced.isEmpty() || prenda.isEmpty() || color.isEmpty()){
+                if (prenda.isEmpty() || color.isEmpty()){
                     JOptionPane.showMessageDialog(null, "Complete todos los campos");
                 } else {
-                    boolean veri = listaClientes.verificarCedulaUnica(ced); //verifica si la cedula ingresada es de un usuario existente
-                    if (veri){
-                        JOptionPane.showMessageDialog(null,"Ese usuario no esta registrado, verifique la cedula");
-                    }else {
-                        JOptionPane.showMessageDialog(null,"Su pedido ha sido generado, cancele el valor de su pedido para registarlo");
-                        OrdenTint b = new OrdenTint(ced,prenda,color,ordenes); //crea objeto orden con un numero de orden
-                        ordenerTNT.add(b); //enlistar ordenes
-
-                        LinkedList cedulasPedTint = ordenerTNT.cedulasPedidos();
-                        DefaultComboBoxModel dcb3 = new DefaultComboBoxModel();
-                        for (Object elemento:cedulasPedTint){
-                            dcb3.addElement(elemento);
-                        }
-                        cboCedTNT.setModel(dcb3);
-
-                        LinkedList numOrden = ordenerTNT.ordenesPedidos();
-                        DefaultComboBoxModel dcb4 = new DefaultComboBoxModel<>();
-                        for (Object elem:numOrden){
-                            dcb4.addElement(elem);
-                        }
-                        cboOrdTNT.setModel(dcb4);
-
-                        txtCedTint.setText("");
-                        txtNombrePrenda.setText("");
-                        txtColor.setText("");
-                        //falta enviar a jpMetodosPago
-                    }
-
-                }
+                    tbtActualizar.remove(jTinturados);
+                    tbtActualizar.add("PAGAR", jpPagarFrame);
                 }
 
-
+                txtNombrePrenda.setText("");
+                txtColor.setText("");
+            }
         });
         BUSCARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String ced = (String) cboCedTNT.getSelectedItem();
+                String ced = cboCedTNT.getSelectedItem().toString();
                 String numOrden = cboOrdTNT.getSelectedItem().toString();
                 int aux = Integer.parseInt(numOrden);
                 OrdenTint y = ordenerTNT.buscarOrden(ced, aux);
@@ -1006,42 +1038,17 @@ public class Ventana {
         REGISTRARYPAGARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String ced= txtCedArregl.getText();
                 String prenda = txtNomPrenda.getText();
                 String descrip = txtDescrip.getText();
-                int ordenes = ordenesArgg.tamano()+1;
-                if (ced.isEmpty() || prenda.isEmpty() || descrip.isEmpty()){
+                if ( prenda.isEmpty() || descrip.isEmpty()){
                     JOptionPane.showMessageDialog(null, "Complete todos los campos");
                 } else {
-                    boolean veri = listaClientes.verificarCedulaUnica(ced); //verifica si la cedula ingresada es de un usuario existente
-                    if (veri){
-                        JOptionPane.showMessageDialog(null,"Ese usuario no esta registrado, verifique la cedula");
-                    }else {
-                        JOptionPane.showMessageDialog(null,"Su pedido ha sido generado, cancele el valor de su pedido para registarlo");
-                        OrdenArreglo b = new OrdenArreglo(ced,prenda,descrip,ordenes); //crea objeto orden con un numero de orden
-                        ordenesArgg.add(b); //enlistar ordenes
-
-                        LinkedList cedulasPedArregg = ordenesArgg.cedulasPedidos();
-                        DefaultComboBoxModel cedulasPA = new DefaultComboBoxModel();
-                        for (Object elemento: cedulasPedArregg){
-                            cedulasPA.addElement(elemento);
-                        }
-                        cboCedArreglo.setModel(cedulasPA);
-
-                        LinkedList numOrdenArg = ordenesArgg.ordenesPedidos();
-                        DefaultComboBoxModel Norden = new DefaultComboBoxModel<>();
-                        for (Object elem: numOrdenArg){
-                            Norden.addElement(elem);
-                        }
-                        cboOrdenArregl.setModel(Norden);
-
-                        txtCedArregl.setText("");
-                        txtNomPrenda.setText("");
-                        txtDescrip.setText("");
-                        //falta enviar a jpMetodosPago
-                    }
-
+                    tbtActualizar.remove(jArreglos);
+                    tbtActualizar.add("PAGAR",jpPagarFrame);
                 }
+                txtCedArregl.setText("");
+                txtNomPrenda.setText("");
+                txtDescrip.setText("");
             }
 
         });
@@ -1055,35 +1062,642 @@ public class Ventana {
                 txtMostArre.setText(y.toString());
             }
         });
-        VERDATOSButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                DefaultListModel<Usuario> dlmMiperfil = new DefaultListModel();
-                String cedula = txtCedMiPerfil.getText();
-                Usuario usuario = listaClientes.buscarPorCedula(cedula);
-                dlmMiperfil.addElement(usuario);
-                jlistClientes.setModel(dlmMiperfil);
-            }
-        });
 
         actualizarDatosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String cedula = txtCedMiPerfil.getText();
+                String cedula = lblCedulaMiperfil.getText();
                 String newNombre = txtNuevoNAME.getText();
+                String newApellido = txtNewApellido.getText();
                 String newCelular = txtCeluNuevo.getText();
-                String newCorreo = txtCorreo.getText();
+                String newCorreo = txtCorreoNuevo.getText();
 
                 Usuario usuario = listaClientes.buscarPorCedula(cedula);
-                usuario.setNombre(newNombre);
-                usuario.setCelular(newCelular);
-                usuario.setCorreo(newCorreo);
+                if (newNombre.isEmpty() && newApellido.isEmpty() && newCelular.isEmpty()&&newCorreo.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"ERROR\nIngrese los datos a actualizar");
+                }else {
 
-                JOptionPane.showMessageDialog(null,"Los datos se han actualizado");
-                JOptionPane.showMessageDialog(null, usuario.toString());
+                    if (newNombre.isEmpty()) {
+                        usuario.setNombre(usuario.getNombre());
+                    } else {
+                        usuario.setNombre(newNombre);
+                    }
+                    if (newApellido.isEmpty()) {
+                        usuario.setApellido(usuario.getApellido());
+                    } else {
+                        usuario.setApellido(newApellido);
+                    }
+                    if (newCelular.isEmpty()) {
+                        usuario.setCelular(usuario.getCelular());
+                    } else {
+                        usuario.setCelular(newCelular);
+                    }
+                    if (newCorreo.isEmpty()) {
+                        usuario.setCorreo(usuario.getCorreo());
+                    } else {
+                        usuario.setCorreo(newCorreo);
+                    }
+                    JOptionPane.showMessageDialog(null, "Los datos se han actualizado");
+                    JOptionPane.showMessageDialog(null, usuario.toString());
+                    txtMiPerfilD.setText(usuario.toString());
+                    txtNuevoNAME.setText("");
+                    txtNewApellido.setText("");
+                    txtCeluNuevo.setText("");
+                    txtCorreoNuevo.setText("");
+                }
+
+            }
+        });
+        regresarButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //volver a menu princ
+                tbtActualizar.remove(jpMiPerfil);
+                tbtActualizar.add("MENU PRINCIPAL", jpMenuPrincipa);
+            }
+        });
+
+        lavadoYSecadoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("LAVADO Y SECADO", jpWashNDry);
+                tbtActualizar.remove(jpServicios);
+            }
+        });
+        REGRESARButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove( jpWashNDry);
+                tbtActualizar.add("SERVICIOS",jpServicios);
+            }
+        });
+        tinturadoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(jpServicios);
+                tbtActualizar.add("TINTURADOS", jTinturados);
+            }
+        });
+
+        REGRESARButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(jTinturados);
+                tbtActualizar.add("SERVICIOS",jpServicios);
+
+            }
+        });
+        arregloDePrendasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(jpServicios);
+                tbtActualizar.add("ARREGLOS",jArreglos);
+            }
+        });
+        REGRESARButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("SERVICIOS", jpServicios);
+                tbtActualizar.remove(jArreglos);
+            }
+        });
+        REGISTRARNUEVOSCLIENTESButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("REGISTRAR NUEVOS CLIENTES", jpRegisUsu);
+                tbtActualizar.remove(jpMenuAdmin);
+            }
+        });
+
+        regresarButton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(jpRegisUsu);
+                tbtActualizar.add("MENU ADMINISTRADOR",jpMenuAdmin);
+            }
+        });
+
+
+        ELIMINARCLIENTESButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("ELIMINAR CLIENTES", jpDeleteCL);
+                tbtActualizar.remove(jpMenuAdmin);
+            }
+        });
+
+        regresarButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove( jpDeleteCL);
+                tbtActualizar.add("MENU ADMINISTRADOR", jpMenuAdmin);
+            }
+        });
+
+        ACTUALIZARDATOSCLIENTESButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("ACTUALIZAR", jpActualizar);
+                tbtActualizar.remove(jpMenuAdmin);
+            }
+        });
+
+        regresarButton5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(jpActualizar);
+                tbtActualizar.add("MENU ADMINISTRADOR", jpMenuAdmin);
+            }
+        });
+
+        VERPEDIDOSButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("VER PEDIDOS", jVerPedidos);
+                tbtActualizar.remove(jpMenuAdmin);
+            }
+        });
+
+        regresarButton6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("MENU ADMINISTRADOR", jpMenuAdmin);
+                tbtActualizar.remove(jVerPedidos);
+            }
+        });
+
+        BUSCARCLIENTESButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("BUSCAR",JpBuscarUsuAd);
+                tbtActualizar.remove(jpMenuAdmin);
+            }
+        });
+
+        regresarButton7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(JpBuscarUsuAd);
+                tbtActualizar.add("MENU ADMINISTRADOR", jpMenuAdmin);
+
+            }
+        });
+
+        LISTARCLIENTESButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("LISTAR",JpListar);
+                tbtActualizar.remove(jpMenuAdmin);
+            }
+        });
+
+        regresarButton8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("MENU ADMINISTRADOR", jpMenuAdmin);
+                tbtActualizar.remove(JpListar);
+            }
+        });
+        VERIFICARTRANSFERENCIASButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("VERIFICAR TRANSFERENCIA", jpVerificarTrans);
+                tbtActualizar.remove(jpMenuAdmin);
+            }
+        });
+
+
+        REGRESARButton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("MENU ADMINISTRADOR", jpMenuAdmin);
+                tbtActualizar.remove( jpVerificarTrans);
+
+            }
+        });
+
+        MIPERFILButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("MI PERFIL", jPerfilAdmn);
+                tbtActualizar.remove(jpMenuAdmin);
+
+            }
+        });
+
+        actualizarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String cedula = lblCedAdmin.getText();
+                String newNombre = txtNewAdminNombre.getText();
+                String newApellido = txtNewApellidoAdmin.getText();
+                String newCelular = txtNewAdminCelu.getText();
+                String newCorreo = txtNewAdminCorreo.getText();
+
+                Usuario administrado = listaAdministradores.buscarPorCedula(cedula);
+
+                if (newNombre.isEmpty() && newApellido.isEmpty() && newCelular.isEmpty() && newCorreo.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "\t\t\tERROR\nIngrese los datos a actualizar");
+                } else {
+                    if (newNombre.isEmpty()) {
+                        administrado.setNombre(administrado.getNombre());
+                    } else {
+                        administrado.setNombre(newNombre);
+                    }
+                    if (newApellido.isEmpty()) {
+                        administrado.setApellido(administrado.getApellido());
+                    } else {
+                        administrado.setApellido(newApellido);
+                    }
+                    if (newCelular.isEmpty()) {
+                        administrado.setCelular(administrado.getCelular());
+                    } else {
+                        administrado.setCelular(newCelular);
+                    }
+                    if (newCorreo.isEmpty()) {
+                        administrado.setCorreo(administrado.getCorreo());
+                    } else {
+                        administrado.setCorreo(newCorreo);
+                    }
+                    JOptionPane.showMessageDialog(null, "Los datos se han actualizado");
+                    JOptionPane.showMessageDialog(null, administrado.toString());
+                    txtMiperfilAdmn.setText(administrado.toString());
+                    txtNewAdminNombre.setText("");
+                    txtNewApellidoAdmin.setText("");
+                    txtNewAdminCelu.setText("");
+                    txtNewAdminCorreo.setText("");
+                }
+            }
+        });
+        cerrarSesionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(jpMiPerfil);
+                tbtActualizar.remove(jPerfilAdmn);
+                tbtActualizar.remove(jpDeleteCL);
+                tbtActualizar.remove(jpVerificarTrans);
+                tbtActualizar.remove(JpListar);
+                tbtActualizar.remove(JpBuscarUsuAd);
+                tbtActualizar.remove(jpActualizar);
+                tbtActualizar.remove(jpRegisUsu);
+                tbtActualizar.remove(JpIniciarUsu);
+                tbtActualizar.remove(JpCrearUsu);
+                tbtActualizar.remove(JpTarjeta);
+                tbtActualizar.remove(JpMetodosPago);
+                tbtActualizar.remove(JpTransferencia);
+                tbtActualizar.remove(JpAppMovil);
+                tbtActualizar.remove(jpMenuPrincipa);
+                tbtActualizar.remove(jpSoliServ);
+                tbtActualizar.remove(jpServicios);
+                tbtActualizar.remove(jpSoporteApp);
+                tbtActualizar.remove(jpWPP);
+                tbtActualizar.add("FAST CLEANING LAUNDRY ", JpGestionar);
+            }
+        });
+        regresarButton9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove( jPerfilAdmn);
+                tbtActualizar.add("MENU ADMINISTRADOR", jpMenuAdmin);
+            }
+        });
+
+        SOPORTEAPPButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("SOPORTE APP", jpSoporteApp);
+                tbtActualizar.remove( jpMenuAdmin);
+
+            }
+        });
+
+        regresarButton10.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(jpSoporteApp);
+                tbtActualizar.add("MENU ADMINISTRADOR", jpMenuAdmin);
+            }
+        });
+        btnHelp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(jpMenuPrincipa);
+                tbtActualizar.add("CONTACTAR AYUDA", jpContactarAyuda);
+
+
+            }
+        });
+        ESCRIBIRAWHATSAPPButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("ENLACE A WHATSAPP", jpWPClien );
+                tbtActualizar.remove(jpContactarAyuda);
+
+            }
+        });
+        REGRESARButton5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.add("MENU PRINCIPAL", jpMenuPrincipa);
+                tbtActualizar.remove(jpContactarAyuda);
+            }
+        });
+        regresarButton12.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(jpWPClien);
+                tbtActualizar.add("CONTACTAR AYUDA", jpContactarAyuda);
+            }
+        });
+        REGRESARButton6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(JpTarjeta);
+                tbtActualizar.add("METEDOS DE PAGO", JpMetodosPago);
+            }
+        });
+
+        btnIR.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String metodoP = cboMetodoPAGO.getSelectedItem().toString();
+                if (metodoP.equalsIgnoreCase("TRANSFERENCIA")){
+                    tbtActualizar.remove(jpPagarFrame);
+                    tbtActualizar.add("TRANSFERENCIA", JpTransferencia );
+                } else if (metodoP.equalsIgnoreCase("APP MOBIL")) {
+                    tbtActualizar.remove(jpPagarFrame);
+                    tbtActualizar.add("APP MOBIL", JpAppMovil);
+                } else if (metodoP.equalsIgnoreCase("TARJETA DE CREDITO")) {
+                    tbtActualizar.remove(jpPagarFrame);
+                    tbtActualizar.add("TARJETA DE CREDITO", jpTarjetaCredi);
+                }
+            }
+        });
+        PAGARButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String servico = cboPservicio.getSelectedItem().toString();
+                String tarjetafav = txtTarjetaFAv.getText();
+                if (tarjetafav.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"No se ha detectado ninguna tarjeta, agregue una priimero");
+                } else {
+                    if (servico.equalsIgnoreCase("LAVADO EN AGUA")){
+                        esAgua();
+                    } else if (servico.equalsIgnoreCase("LAVADO EN SECO")) {
+                        esSeco();
+                    } else if (servico.equalsIgnoreCase("TINTURADOS")) {
+                        esTinturado();
+                    } else if (servico.equalsIgnoreCase("ARREGLOS")){
+                        esArreglo();
+                    } else if (servico.equalsIgnoreCase("SELECCIONA EL SERVICIO")){
+                        JOptionPane.showMessageDialog(null,"SELECCIONE UN SERVICIO");
+                    }
+
+                }
+            }
+        });
+        SALIRButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(JpAppMovil);
+                tbtActualizar.add("MENU PRINCIPAL",jpMenuPrincipa);
+            }
+        });
+        PAGARButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nombre = txtNameDeUna.getText();
+                String monto = txtMontoDeUNa.getText();
+                String fecha = txtfechaDeUna.getText();
+                String serv =cboServDeUna.getSelectedItem().toString();
+                if (nombre.isEmpty() || monto.isEmpty()||fecha.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Rellene todos los campos");
+                }else {
+                    if (serv.equalsIgnoreCase("TINTURADOS")){
+                        esTinturado();
+                        esDeuna();
+                    } else if (serv.equalsIgnoreCase("LAVADO EN AGUA")){
+                        esAgua();
+                        esDeuna();
+                    } else if (serv.equalsIgnoreCase("LAVADO EN SECO")) {
+                        esSeco();
+                        esDeuna();
+                    } else if (serv.equalsIgnoreCase("ARREGLOS")) {
+                        esArreglo();
+                        esDeuna();
+                    } else if (serv.equalsIgnoreCase("SELECCIONA EL SERVICIO")) {
+                        JOptionPane.showMessageDialog(null,"Selecciona un servicio a cancelar");
+                    }
+
+                }
+
+
+
+            }
+        });
+        BUSCARButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String ced = (String) cboCEDSECO.getSelectedItem();
+                String numOrden = cboORDSECO.getSelectedItem().toString();
+                int aux = Integer.parseInt(numOrden);
+                Orden o = ordenSeco.buscarOrdenSECO(ced, aux); //busca la orden por cedula
+                txtPedidosSECO.setText(o.toString());
+            }
+        });
+        CAMBIARMETODODEPAGOButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(jpTarjetaCredi);
+                tbtActualizar.add("PAGAR", jpPagarFrame);
+            }
+        });
+
+        CAMBIARMETODOPAGOButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(JpAppMovil);
+                tbtActualizar.add("PAGAR", jpPagarFrame);
+            }
+        });
+
+        CAMBIARMETODOPAGOButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(JpTransferencia);
+                tbtActualizar.add("PAGAR", jpPagarFrame);
             }
         });
     }
+    
+    public void esAgua (){
+            String cedu = lblCedulaAgua.getText();
+            String lista = txtProduAGG.getText();
+            int aux = ordenes.tamano()+1;
+            boolean veri = listaClientes.verificarCedulaUnica(cedu); //verifica si la cedula ingresada es de un usuario existente
+
+            if (veri) {
+                JOptionPane.showMessageDialog(null, "Ese usuario no esta registrado, verifique la cedula");
+            } else {
+                Orden o = new Orden(cedu, lista, aux); //crea objeto orden con un numero de orden
+                ordenes.add(o); //enlistar ordenes
+
+                LinkedList cedulasPedidos = ordenes.cedulasPedidos();
+                DefaultComboBoxModel dcbo = new DefaultComboBoxModel();
+                for (Object elemento : cedulasPedidos) {
+                    dcbo.addElement(elemento); //para que se añada solo una vez la cedula del usuario
+                    // pero si se añade el numero de ordenes que tiene
+                }
+                cboVeriPedi.setModel(dcbo);
+
+                LinkedList numOrden = ordenes.ordenespedidos();
+                DefaultComboBoxModel dcbo1 = new DefaultComboBoxModel<>();
+                for (Object elem : numOrden) {
+                    dcbo1.addElement(elem);
+                }
+                cboOrden.setModel(dcbo1);
+
+                JOptionPane.showMessageDialog(null, "Su pedido ha sido registrado, gracias por su confianza");
+                tbtActualizar.remove(jpTarjetaCredi);
+                tbtActualizar.remove(JpTransferencia);
+                tbtActualizar.remove(JpAppMovil);
+                tbtActualizar.add("MENU PRINCIPAL", jpMenuPrincipa);
+                txtProduAGG.setText("");
+            }
+    }
+
+    public void esSeco(){
+        String cedula = lblCedulaSeco.getText();
+        String listaSec = txtproduSeco.getText();
+        int auxSec = ordenSeco.tamano()+1;
+
+            boolean veri = listaClientes.verificarCedulaUnica(cedula); //verifica si la cedula ingresada es de un usuario existente
+            if (veri){
+                JOptionPane.showMessageDialog(null,"Ese usuario no esta registrado, verifique la cedula");
+            }else {
+                Orden ordenSec = new Orden(cedula, listaSec, auxSec); //crea objeto orden con un numero de orden
+                ordenSeco.add(ordenSec); //enlistar ordenes
+                LinkedList cedulasPedidos = ordenSeco.cedulasSECO();
+                DefaultComboBoxModel dcbo10 = new DefaultComboBoxModel();
+                for (Object ordeSec:cedulasPedidos){
+                    dcbo10.addElement(ordeSec);
+                }
+                cboCEDSECO.setModel(dcbo10);
+                LinkedList numOrdenSec = ordenSeco.ordeneSECO();
+                DefaultComboBoxModel dcbo9 = new DefaultComboBoxModel<>();
+                for (Object elem:numOrdenSec){
+                    dcbo9.addElement(elem);
+                }
+                cboORDSECO.setModel(dcbo9);
+                JOptionPane.showMessageDialog(null,"Su pedido ha sido registrado, gracias por su confianza");
+                tbtActualizar.remove(jpTarjetaCredi);
+                tbtActualizar.remove(JpAppMovil);
+                tbtActualizar.remove(JpTransferencia);
+                tbtActualizar.add("MENU PRINCIPAL", jpMenuPrincipa);
+                txtProduAGG.setText("");
+            }
+
+    }
+    public void esTinturado(){
+        String ced= lblCedulaTinturado.getText();
+        String prenda = txtNombrePrenda.getText();
+        String color = txtColor.getText();
+        int ordenes = ordenerTNT.tamano()+1;
+        boolean veri = listaClientes.verificarCedulaUnica(ced); //verifica si la cedula ingresada es de un usuario existente
+        if (veri){
+            JOptionPane.showMessageDialog(null,"Ese usuario no esta registrado, verifique la cedula");
+        }else {
+            OrdenTint b = new OrdenTint(ced,prenda,color,ordenes); //crea objeto orden con un numero de orden
+            ordenerTNT.add(b); //enlistar ordenes
+
+            LinkedList cedulasPedTint = ordenerTNT.cedulasPedidos();
+            DefaultComboBoxModel dcb3 = new DefaultComboBoxModel();
+            for (Object elemento:cedulasPedTint){
+                dcb3.addElement(elemento);
+            }
+            cboCedTNT.setModel(dcb3);
+
+            LinkedList numOrden = ordenerTNT.ordenesPedidos();
+            DefaultComboBoxModel dcb4 = new DefaultComboBoxModel<>();
+            for (Object elem:numOrden){
+                dcb4.addElement(elem);
+            }
+            cboOrdTNT.setModel(dcb4);
+            JOptionPane.showMessageDialog(null,"Su pedido ha sido registrado, gracias por su confianza");
+            tbtActualizar.remove(jpTarjetaCredi);
+            tbtActualizar.remove(JpAppMovil);
+            tbtActualizar.remove(JpTransferencia);
+            tbtActualizar.add("MENU PRINCIPAL", jpMenuPrincipa);
+            txtNombrePrenda.setText("");
+            txtColor.setText("");
+        }
+
+    }
+    public void esArreglo(){
+        String ced= lblCedulaArreglo.getText();
+        String prenda = txtNomPrenda.getText();
+        String descrip = txtDescrip.getText();
+        int ordenes = ordenesArgg.tamano()+1;
+
+            boolean veri = listaClientes.verificarCedulaUnica(ced); //verifica si la cedula ingresada es de un usuario existente
+            if (veri){
+                JOptionPane.showMessageDialog(null,"Ese usuario no esta registrado, verifique la cedula");
+            }else {
+                OrdenArreglo b = new OrdenArreglo(ced, prenda, descrip, ordenes); //crea objeto orden con un numero de orden
+                ordenesArgg.add(b); //enlistar ordenes
+
+                LinkedList cedulasPedArregg = ordenesArgg.cedulasPedidos();
+                DefaultComboBoxModel cedulasPA = new DefaultComboBoxModel();
+                for (Object elemento : cedulasPedArregg) {
+                    cedulasPA.addElement(elemento);
+                }
+                cboCedArreglo.setModel(cedulasPA);
+
+                LinkedList numOrdenArg = ordenesArgg.ordenesPedidos();
+                DefaultComboBoxModel Norden = new DefaultComboBoxModel<>();
+                for (Object elem : numOrdenArg) {
+                    Norden.addElement(elem);
+                }
+                cboOrdenArregl.setModel(Norden);
+                JOptionPane.showMessageDialog(null,"Su pedido ha sido registrado, gracias por su confianza");
+                tbtActualizar.remove(jpTarjetaCredi);
+                tbtActualizar.remove(JpTransferencia);
+                tbtActualizar.remove(JpAppMovil);
+                tbtActualizar.add("MENU PRINCIPAL", jpMenuPrincipa);
+
+            }
+
+        }
+        public void transferir (){
+            String nombreprop = txtNombreCuenta.getText();
+            String cuenta = txtNumCuenta.getText();
+            int nCuenta = Integer.parseInt(cuenta);
+            String comprobante = txtComporobante.getText();
+            String banco = txtBanco.getText();
+            String fecha = txtFechaTransfer.getText();
+            Float monto = Float.parseFloat(txtMonto.getText());
+            Comprobantes neni = new Comprobantes(nombreprop,nCuenta,comprobante,fecha, banco, monto);
+            coco.agregar(neni);
+            txtTransfer.setText(coco.toString());
+            JOptionPane.showMessageDialog(null,"Estamos validando tu transferencia," +
+                    " se te enviará la confirmación al correo");
+        }
+        public void esDeuna (){
+
+            String nombre = txtNameDeUna.getText();
+            String monto = txtMontoDeUNa.getText();
+            String fecha = txtfechaDeUna.getText();
+            ComprobanteDeUna deUna = new ComprobanteDeUna(nombre,monto,fecha);
+            rila.agregar(deUna);
+            txtTransDeUna.setText(rila.toString());
+            JOptionPane.showMessageDialog(null,"Estamos validando tu transferencia," +
+                    " se te enviará la confirmación al correo");
+            txtNameDeUna.setText("");
+            txtMontoDeUNa.setText("");
+            txtfechaDeUna.setText("");
+        }
+
+
 
 
     public static void main(String[] args) {

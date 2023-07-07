@@ -50,14 +50,22 @@ public class Usuario {
 
     public void setCorreo(String correo) {this.correo = correo;}
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
     public void setCelular(String celular) {this.celular = celular;}
 
     @Override
     public String toString() {
         return "Usuario:\n" +
                 "Nombre: \t" + nombre + apellido +
-                "\nCedula: \n" + cedula  +
-                "Correo: \n" + correo +
-                "Celular: \n" + celular ;
+                "\nCedula: \t" + cedula  +
+                "\nCorreo: \n" + correo +
+                "\nCelular: \n" + celular ;
     }
 }
