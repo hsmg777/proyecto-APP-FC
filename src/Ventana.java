@@ -271,6 +271,14 @@ public class Ventana {
     private JComboBox cboServDeUna;
     private JTextArea txtTransDeUna;
     private JTextArea txtTransfer;
+    private JTextField txtNamePropCC;
+    private JTextField txtCC;
+    private JTextField txtDay;
+    private JTextField txtMonth;
+    private JTextField txtYear;
+    private JTextField txtCvv;
+    private JButton REGISTRARButton;
+    private JPanel jpNuevaTarj;
     private JCheckBox ckMISMO;
     private JLabel lblFoto;
     private JList lstListar;
@@ -308,6 +316,7 @@ public class Ventana {
         tbtActualizar.remove(jpWPClien);
         tbtActualizar.remove(jpPagarFrame);
         tbtActualizar.remove(jpTarjetaCredi);
+        tbtActualizar.remove(jpNuevaTarj);
         tbtAgSec.remove(jAgua);
         tbtAgSec.remove(jSeco);
 
@@ -1526,6 +1535,50 @@ public class Ventana {
             public void actionPerformed(ActionEvent e) {
                 tbtActualizar.remove(JpTransferencia);
                 tbtActualizar.add("PAGAR", jpPagarFrame);
+            }
+        });
+        AGREGARNUEVATARJETAButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbtActualizar.remove(jpTarjetaCredi);
+                tbtActualizar.add("AGREGAR TARJETA", jpNuevaTarj);
+            }
+        });
+        REGISTRARButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nombreprop = txtNamePropCC.getText();
+                String numTarj = txtCC.getText();
+                String diaTarjeta = txtDay.getText();
+                String mesTarjeta = txtMonth.getText();
+                String anioTarjeta = txtYear.getText();
+                String fechaTarj = diaTarjeta+"/"+mesTarjeta+"/"+anioTarjeta.toString();
+                String cvv = txtCVV.getText();
+                Tarjeta tarjetin = new Tarjeta(numTarj,fechaTarj,cvv);
+                boolean isValid = pepe.validateCreditCard(numTarj);
+                boolean validarFecha = pepe.validarFecha(fechaTarj);
+                if (isValid) {
+                    if (validarFecha) {
+                        JOptionPane.showMessageDialog(null, "El número de tarjeta es válido.");
+                        pepe.agregar(tarjetin);
+                        txtTarjetaFAv.setText(String.valueOf(pepe.listita.getLast()));
+                        txtNombreProp.setText("");
+                        txtNumTarj.setText("");
+                        txtDia.setText("");
+                        txtMes.setText("");
+                        txtAnio.setText("");
+                        txtCVV.setText("");
+                        tbtActualizar.remove(jpNuevaTarj);
+                        tbtActualizar.add(jpTarjetaCredi);
+                    }else{
+                        JOptionPane.showMessageDialog(null,"La fecha ingresada no es valida");
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null,"El número de tarjeta no es válido.");
+                }
+
+
             }
         });
     }
