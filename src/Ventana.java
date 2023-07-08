@@ -907,7 +907,8 @@ public class Ventana {
                 lblSUBTOTAL.setText("");
                 lblValEncio.setText("");
                 lblTOTAL.setText("");
-
+                // Limpiar la lista auxliar de productos agregados
+                productosAg.lista.clear();
                 }
         });
 
@@ -1010,10 +1011,10 @@ public class Ventana {
                 spCantSeco.setModel(model);
                 lblPuniSeco.setText("");
                 lblPrecioSeco.setText("");
-                txtproduSeco.setText("");
                 lblSUBTSECO.setText("");
                 lblEnviSECO.setText("");
                 lblTOTALSECO.setText("");
+                listaProd.lista.clear();
             }
         });
         btnPagarTint.addActionListener(new ActionListener() {
@@ -1647,7 +1648,7 @@ public class Ventana {
                 tbtActualizar.remove(JpAppMovil);
                 tbtActualizar.remove(JpTransferencia);
                 tbtActualizar.add("MENU PRINCIPAL", jpMenuPrincipa);
-                txtProduAGG.setText("");
+                txtproduSeco.setText("");
             }
 
     }
@@ -1749,9 +1750,6 @@ public class Ventana {
             txtMontoDeUNa.setText("");
             txtfechaDeUna.setText("");
         }
-
-
-
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Ventana");
