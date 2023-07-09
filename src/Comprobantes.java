@@ -18,13 +18,13 @@ public class Comprobantes {
 
     @Override
     public String toString() {
-        return "Comprobantes" +
-                "Nombre:" + nombre +
-                "Numero de cuenta:" + Ncuenta +
-                "Numero de comprobante: " + comprobante +
-                "Fecha: " + fecha +
-                "Banco origen: " + banco +
-                "Monto: " + monto ;
+        return "\nComprobante:\n" +
+                "Nombre:\t" + nombre +
+                "\nNumero de cuenta:\t" + Ncuenta +
+                "\nNumero de comprobante: \t" + comprobante +
+                "\nFecha: \t" + fecha +
+                "\nBanco origen: \t" + banco +
+                "\nMonto: \t" + monto ;
 
 
     }

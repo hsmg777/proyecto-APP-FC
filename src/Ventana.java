@@ -529,8 +529,7 @@ public class Ventana {
             }
         });
 
-        btnYaTansferi.addActionListener(new
-                                                ActionListener() {
+        btnYaTansferi.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String servico = cboServArr.getSelectedItem().toString();
